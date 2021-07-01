@@ -23,7 +23,7 @@ pipeline {
         stage('checkout git') {
             steps {
                 sh "pwd"
-                dir("Terraform") {
+                dir("Deploy_Infra") {
                     sh "pwd"
                     git(
                         url: 'https://github.com/HugoButery/CICD_Projet_DevOps',
@@ -37,7 +37,7 @@ pipeline {
         
         stage('Deploy Infra') {
             steps {
-                dir("Deploy_Infra") {
+                dir("Terraform") {
                     sh "pwd"
                     
                     sh "ls"
