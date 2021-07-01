@@ -41,7 +41,7 @@ pipeline {
                     sh "ls"
                     
                     wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
-                        sh "terraform init -backend-config='dev-ops-grp4' -backend-config='$APP_NAME/$ENV/infra.tfstate' -backend-config='region=eu-west-1'"
+                        sh "terraform init -backend-config='bucket=dev-ops-grp4' -backend-config='key=$APP_NAME/$ENV/infra.tfstate' -backend-config='region=eu-west-1'"
                         sh "terraform destroy -auto-approve"
                     }
                     }
