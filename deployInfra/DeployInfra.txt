@@ -39,6 +39,7 @@ pipeline {
             steps {
                dir("Deploy_Infra"){
                 dir("Terraform") {
+                dir("Infra"){
                     sh "pwd"
                     
                     sh "ls"
@@ -47,6 +48,7 @@ pipeline {
                         sh "terraform init -backend-config='bucket=dev-ops-grp4' -backend-config='key=$APP_NAME/$ENV/infra.tfstate' -backend-config='region=eu-west-1'"
                         sh "terraform apply -auto-approve"
                     }
+                }
                 }
                }
             }
