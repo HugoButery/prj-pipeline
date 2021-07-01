@@ -43,7 +43,7 @@ pipeline {
 
                     wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
                         sh "terraform init -backend-config='bucket=$StateBucketName' -backend-config='key=$APP_NAME/$ENV/app.tfstate' -backend-config='region=eu-west-1' -var 'env=$ENV' -var 'app_name=$APP_NAME' -var 'app_port=$APP_PORT'"
-                        sh "terraform destroy -auto-approuve"
+                        sh "terraform destroy -auto-approve"
                     }
                 }
                 }
