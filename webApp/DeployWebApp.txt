@@ -38,7 +38,7 @@ pipeline {
             steps {
                 dir("Deploy_WebApp") {
                 dir("Terraform"){
-                dir("App")
+                dir("App"){
                     sh "terraform --version"
                     sh "pwd"
                     sh "ls"
