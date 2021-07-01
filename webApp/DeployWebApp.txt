@@ -44,7 +44,7 @@ pipeline {
                     sh "ls"
 
                     wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'xterm']) {
-                        sh "terraform init -backend-config='bucket=$StateBucketName' -backend-config='key=$APP_NAME/$ENV/app.tfstate' -backend-config='region=eu-west-1'"
+                        sh "terraform init -backend-config='bucket=$StateBucketName' -backend-config='key=$APP_NAME/$ENV/app.tfstate' -backend-config='region=eu-west-1' -var 'AMIName=$ENV-$APP_NAME-AMI'"
                         sh "terraform apply -auto-approve"
                     }
                 }
