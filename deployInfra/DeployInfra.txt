@@ -37,6 +37,7 @@ pipeline {
         
         stage('Deploy Infra') {
             steps {
+               dir("Deploy_Infra"){
                 dir("Terraform") {
                     sh "pwd"
                     
@@ -47,6 +48,7 @@ pipeline {
                         sh "terraform apply -auto-approve"
                     }
                 }
+               }
             }
         }
     }
